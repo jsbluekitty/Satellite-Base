@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Satellite—Base</title>
+<script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+   <style>
+   		* {
+   		box-sizing: border-box;
+		font-size: 15px;
+   		}
+   		/* 框内属性 */
+   		body {
+   		margin: 0;
+   		padding: 0;
+
+   		}
+   		
+   		#container {
+   		width: 500px;
+   		height: 820px;
+   		margin: 0 auto;
+   		}
+   
+   div.search {
+   	padding: 30px 0;
+	height: 1000px;
+   	}
+   /* 大框部分 */
+   form {
+   position: relative;
+   width: 300px;
+   margin: 0 auto;
+   }
+   
+   input, button {
+   border: none;
+   outline: none;
+   }
+   
+   input {
+   width: 100%;
+   height: 42px;
+   padding-left: 13px;
+   }
+   
+   button {
+   height: 42px;
+   width: 42px;
+   cursor: pointer;
+   position: absolute;
+   background-color: aquamarine;
+   }
+
+   .bar7 {
+	   background-image: url(../static/img/world.topo.bathy.200401.jpg) ;}
+   .bar7 form {
+   height: 42px;
+   }
+   
+   .bar7 input {
+   width: 250px;
+   border-radius: 42px;
+   border: 2px solid #324B4E;
+   background: #F9F0DA;
+   transition: .3s linear;
+   float: right;
+   }
+   /* 伸缩搜索框 */
+   .bar7 input:focus {
+   width: 300px;
+   }
+   
+   .bar7 button {
+   background: none;
+   top: 0px;
+   right: 0;
+   }
+   
+   .bar7 button:before{
+             content: "\f002";
+             font-family: FontAwesome;
+             color: #324b4e;
+           }
+   /* 搜索栏属性 */
+
+   </style>
+<link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+
+<style>
+	.red-text{
+		font-size: 30px;
+		color: #333333;
+	}
+</style>
+<!-- 搜索字样属性 -->
+</head>
+<div class="search bar7">
+	<img src="../static/img/卫星.png" alt="" height=80px"" >
+    <img src="../static/img/bk.png" alt="" height=80px"" >
+	<form action="/gets/" method="post">
+		<font size="8"></font>
+		<div style="top:0px;font-size: 40px;text-align:center;color:whitesmoke">卫星搜索
+		<p class="red-text"> <input type="text"  name="question"></p>
+		<input type="submit" style="float:right;width: 26%;" value="提交">
+        <input type="button" style="float:right;width: 37%;" value="寻求帮助" onclick="javascrtpt:jump1()" >
+        <input type="button" style="float:right;width: 37%;" value="关于我们" onclick="javascrtpt:jump2()" >
+		</div>
+	</form>
+</div>
+
+<script>
+jQuery.expr[':'].Contains = function(a, i, m) {
+    return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
+};
+
+function filterList(list) {
+    $('#js-groupId').bind('input propertychange', function() {
+        var filter = $(this).val();
+        if (filter) {
+            $matches = $(list).find('a:Contains(' + filter + ')').parent();
+            $('li', list).not($matches).slideUp();
+            $matches.slideDown();
+        } else {
+            $(list).find("li").slideDown();
+        }
+    });
+}
+
+function jump1(){
+        window.location.href="https://jsbluekitty.love/";
+    }
+    
+function jump2(){
+        window.location.href="https://jsbluekitty.love/2020/06/09/aboutus/";
+    }
+$(function() {
+    filterList($("#groupid"));
+    $('#js-groupId').bind('focus', function() {
+        $('#groupid').slideDown();
+    }).bind('blur', function() {
+        $('#groupid').slideUp();
+    })
+    $('#groupid').on('click', 'li', function() {
+        $('#js-groupId').val($(this).text())
+        $('#groupId').val($(this).data('id'))
+        $('#groupid').slideUp()
+    });
+})
+</script>
+<style type="text/css">
+body,table{
+font-size:12px;
+}
+table{
+table-layout:fixed;
+empty-cells:show;
+border-collapse: collapse;
+margin:0 auto;
+}
+
+td{
+height:30px;
+}
+
+h1,h2,h3{
+font-size:12px;
+margin:0;
+padding:0;
+}
+
+.table{
+border:1px solid #cad9ea;
+color:#666;
+}
+
+.table th {
+background-repeat:repeat-x;
+height:30px;
+}
+
+.table td,.table th{
+border:1px solid #cad9ea;
+padding:0 1em 0;
+}
+
+.table tr.alter{
+background-color:#f5fafe;
+}
+
+</style>
+</html>

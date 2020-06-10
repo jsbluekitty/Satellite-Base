@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="cn-zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Satellite—Base</title>
+</head>
+<body>
+    <center>
+		<style type="text/css">
+		body,table{
+		font-size:12px;
+		}
+		table{
+		table-layout:fixed;
+		empty-cells:show;
+		border-collapse: collapse;
+		margin:0 auto;
+		}
+		
+		td{
+		height:30px;
+		}
+		
+		h1{
+		font-size:20px;
+		margin:0;
+		padding:0;
+		}
+		
+		.table{
+		border:2px solid rgba(151, 129, 255, 0.7);
+		color: #000000;
+		width: 1200px;
+		}
+		
+		.table th {
+		background-repeat:repeat-x;
+		height:30px;
+		}
+		
+		.table td,.table th{
+		border:2px solid #0075ff;
+		padding:0 1em 0;
+		}
+		
+		</style>
+		<table width="90%" class="table">
+        <h1>~~我们的征途是星辰大海~~</h1>
+        <h1>结果如下：</h1>
+        <hr>
+            <tr style="text-align:center">
+                <th>编号</th>
+                <th>名称</th>
+                <th>状态</th>
+                <th>审定名</th>
+                <th>目录名称</th>
+                <th>轨道</th>
+
+            </tr>
+            {% for i in items %}
+            <tr style="text-align:center">
+                <td>{{ i.id }}</td>
+                <td>{{ i.name }}</td>
+                <td>{{ i.state }}</td>
+                <td>{{ i.a_name }}</td>
+                <td>{{ i.l_name }}</td>
+                <td>{{ i.orbit }}</td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>
