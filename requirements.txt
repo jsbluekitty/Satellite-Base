@@ -22,7 +22,7 @@ cycler==0.10.0
 decorator==4.4.1
 defusedxml==0.6.0
 distlib==0.3.0
-Django==3.0.4
+Django==3.0.14
 docutils==0.14
 dominate==2.5.1
 easygui==0.98.1
