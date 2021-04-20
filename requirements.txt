@@ -81,7 +81,7 @@ pluggy==0.13.1
 progressbar==2.5
 prometheus-client==0.7.1
 prompt-toolkit==3.0.4
-py==1.8.1
+py==1.10.0
 pybind11==2.4.3
 pycairo==1.19.1
 pycodestyle==2.5.0
